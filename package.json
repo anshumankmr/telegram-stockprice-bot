@@ -9,7 +9,10 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "lint": "eslint --ext .js --ignore-path .gitignore ."
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "test": "node services/get-stock-data.js",
+    "test1": "node utils/kite-login.js"
+
   },
   "author": "Anshuman Kumar",
   "license": "MIT",
@@ -17,9 +20,13 @@
     "axios": "^0.25.0",
     "cors": "^2.8.5",
     "dialogflow-fulfillment": "^0.6.1",
+    "dotenv": "^16.0.1",
     "express": "^4.17.2",
+    "kiteconnect": "^4.0.1",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.15",
+    "puppeteer": "^14.4.0",
+    "socket.io-client": "^4.5.1",
     "winston": "^3.5.0"
   },
   "devDependencies": {
