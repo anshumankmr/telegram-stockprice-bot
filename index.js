@@ -1,6 +1,6 @@
-const start = require("./server")
+const start = require('./server');
 async function createApp()
 {
-    await start.start();
+	await start.start();
 }
-createApp()
+createApp();

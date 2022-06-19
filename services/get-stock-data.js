@@ -1,5 +1,5 @@
 
-var KiteTicker = require("kiteconnect").KiteTicker;
+var KiteTicker = require('kiteconnect').KiteTicker;
 
 function createTicker(data){
 
@@ -16,7 +16,7 @@ function createTicker(data){
 	ticker.on('close', onClose);
 	ticker.on('order_update', onTrade);
 	function onTicks(ticks) {
-		console.log("Ticks", ticks);
+		console.log('Ticks', ticks);
 	}
 	
 	function subscribe() {
@@ -26,19 +26,19 @@ function createTicker(data){
 	}
 	
 	function onDisconnect(error) {
-		console.log("Closed connection on disconnect", error);
+		console.log('Closed connection on disconnect', error);
 	}
 	
 	function onError(error) {
-		console.log("Closed connection on error", error);
+		console.log('Closed connection on error', error);
 	}
 	
 	function onClose(reason) {
-		console.log("Closed connection on close", reason);
+		console.log('Closed connection on close', reason);
 	}
 	
 	function onTrade(order) {
-		console.log("Order update", order);
+		console.log('Order update', order);
 	}
 	
 }
