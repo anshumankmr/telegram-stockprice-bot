@@ -16,7 +16,7 @@ function createTicker(data){
 	ticker.on('close', onClose);
 	ticker.on('order_update', onTrade);
 	function onTicks(ticks) {
-		console.log('Ticks', ticks);
+		console.log('Ticks', JSON.stringify(ticks, null , 2));
 	}
 	
 	function subscribe() {
