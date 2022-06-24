@@ -1,5 +1,5 @@
 const { WebhookClient } = require('dialogflow-fulfillment');
-const createIntentMap = require('../src/intentHandler');
+const createIntentMap = require('./intent-mapper');
 
 const intentMapper = (req,res) =>
 {
