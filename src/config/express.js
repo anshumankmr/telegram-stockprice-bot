@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const compress = require('compression');
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 const cors = require('cors');
 const helmet = require('helmet');
 const passport = require('passport');
@@ -29,7 +29,7 @@ app.use(compress());
 
 // lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it
-app.use(methodOverride());
+// app.use(methodOverride());
 
 // secure apps by setting various HTTP headers
 app.use(helmet());

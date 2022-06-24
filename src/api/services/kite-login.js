@@ -1,7 +1,8 @@
 require('dotenv').config();
 const puppeteer = require('puppeteer');
 const { generateAccessToken } = require('./generate-access-token');
-( async () => {
+
+const kiteLoginHelper = async () => {
 	const [userId,password,pin,apikey] = [process.env.CLIENT_ID,process.env.PASSWORD,process.env.PIN,process.env.API_KEY];
 	const browser = await puppeteer.launch({ headless: true });
 	const page = await browser.newPage();
@@ -23,7 +24,7 @@ const { generateAccessToken } = require('./generate-access-token');
 		requestToken = url.slice(url.indexOf('request_token') + 'request_token'.length + 1,url.indexOf('&action'));
 	} else {
 		requestToken = url.slice(url.indexOf('request_token') + 'request_token'.length + 1);
-
+	
 	}
 	if (requestToken === ''){
 		return;
@@ -38,4 +39,6 @@ const { generateAccessToken } = require('./generate-access-token');
 		'checksum':  process.env.API_KEY + process.env.REQUEST_TOKEN + process.env.API_SECRET
 	};
 	await generateAccessToken(data);
-})();
+};
+
+module.exports = {kiteLoginHelper};
