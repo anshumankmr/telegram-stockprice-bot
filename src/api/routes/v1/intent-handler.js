@@ -1,7 +1,7 @@
 const { WebhookClient } = require('dialogflow-fulfillment');
-const createIntentMap = require('../src/intentHandler');
+const createIntentMap = require('./intent-mapper');
 
-const intentMapper = (req,res) =>
+const intentHandler = (req,res) =>
 {
 	try {
 		const agent = new WebhookClient({ request: req, response: res });
@@ -14,9 +14,5 @@ const intentMapper = (req,res) =>
 		console.error(e);
 	}
 };
-const getHealth = (req,res) =>
-{
-	res.send('Looks Okay' );
-};
 
-module.exports = { intentMapper : intentMapper , getHealth : getHealth };
+module.exports = { intentHandler };

@@ -3,7 +3,7 @@ const axios = require('axios');
 const qs = require('qs');
 
 require('dotenv').config();
-const {createTicker} = require('../services/get-stock-data');
+const {createTicker} = require('./get-stock-data');
 
 async function generateAccessToken(data) {
 	data.checksum = crypto.createHash('sha256').update(data.checksum).digest('hex');
