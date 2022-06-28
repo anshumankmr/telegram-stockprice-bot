@@ -10,9 +10,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix",
-    "test": "node services/get-stock-data.js",
-    "test1": "node utils/kite-login.js",
-    "test2": "node utils/generate-access-token.js"
+    "test": "node src/api/services/kite-login.js"  
   },
   "author": "Anshuman Kumar",
   "license": "MIT",
