@@ -1,6 +1,6 @@
 const MongoClient = require( 'mongodb' ).MongoClient;
-const url = 'mongodb://localhost:27017';
-
+const { mongo } = require('../vars');
+const url = mongo.uri;
 var _db;
 
 module.exports = {
