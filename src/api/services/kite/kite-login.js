@@ -4,7 +4,10 @@ const { generateAccessToken } = require('./generate-access-token');
 
 const kiteLoginHelper = async () => {
 	const [userId,password,pin,apikey] = [process.env.CLIENT_ID,process.env.PASSWORD,process.env.PIN,process.env.API_KEY];
-	const browser = await puppeteer.launch({ headless: true });
+	const browser = await puppeteer.launch({ 
+		headless: true,
+		args: ['--no-sandbox','--disable-setuid-sandbox']
+	});
 	const page = await browser.newPage();
 	await page.setViewport({ width: 1280, height: 800 });
 	await page.goto(`https://kite.trade/connect/login?api_key=${apikey}&v=3`);
