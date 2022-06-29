@@ -8,7 +8,7 @@ const automateGenerateAccessTokenTask = cron.schedule('45 8 * * *', async () => 
 		const kiteCredentials = await kiteLoginHelper();
 		const db = mongoUtil.getDb();
 		db.collection('kite-token').deleteMany({});
-		console.log(db.collection('kite-token').insertOne(kiteCredentials));
+		console.log(await db.collection('kite-token').insertOne(kiteCredentials));
 	}
 	catch(err){
 		logger.log('error',err.stack);

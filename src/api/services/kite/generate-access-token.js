@@ -17,7 +17,6 @@ async function generateAccessToken(data) {
 			},
 			data : stringifiedData
 		};
-		console.log(options);
 		const response = await apiHelper.call(options);
 		const kiteCreds = { api_key: data.api_key, access_token: response.data.data.access_token };
 		return kiteCreds;

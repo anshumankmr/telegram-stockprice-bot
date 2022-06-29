@@ -1,8 +1,15 @@
 
 var KiteTicker = require('kiteconnect').KiteTicker;
+const mongoUtil = require('../../../config/databases/mongo');
 
-function createTicker(data){
-
+async function getStockData(args){
+	
+	const db = mongoUtil.getDb();
+	const documents = await db.collection('kite-token').find().toArray();
+	if (documents.length > 1 || documents === undefined || documents === null){
+		return;
+	}
+	let data = documents[0];
 	const ticker = new KiteTicker({
 		api_key: data.api_key ,
 		access_token: data.access_token
@@ -20,7 +27,7 @@ function createTicker(data){
 	}
 	
 	function subscribe() {
-		var items = [408065, 884737];//Sample Ticker Items
+		var items = [parseInt(args.stockId)];//Sample Ticker Items
 		ticker.subscribe(items);
 		ticker.setMode(ticker.modeFull, items);
 	}
@@ -43,4 +50,4 @@ function createTicker(data){
 	
 }
 
-module.exports = { createTicker };
+module.exports = { getStockData };
