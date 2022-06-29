@@ -29,16 +29,15 @@ const kiteLoginHelper = async () => {
 	if (requestToken === ''){
 		return;
 	}
-	console.log(url);
-	process.env.REQUEST_TOKEN = requestToken;
-	console.log(process.env.REQUEST_TOKEN);
+	process.env.REQUEST_TOKEN = requestToken;//add logic to cache request token
 	await browser.close();
 	let data = {
 		'api_key': process.env.API_KEY,
 		'request_token': requestToken,
 		'checksum':  process.env.API_KEY + process.env.REQUEST_TOKEN + process.env.API_SECRET
 	};
-	await generateAccessToken(data);
+	const response = await generateAccessToken(data);
+	return response;
 };
 
 module.exports = {kiteLoginHelper};

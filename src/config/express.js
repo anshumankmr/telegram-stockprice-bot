@@ -10,12 +10,24 @@ const routes = require('../api/routes/v1');
 const { logs } = require('./vars');
 // const strategies = require('./passport');
 const error = require('../api/middlewares/error');
+const mongoUtil = require('./databases/mongo');
+const { automateGenerateAccessTokenTask } = require('../api/services/kite/kite-request-token-cron');
 
 /**
 * Express instance
 * @public
 */
 const app = express();
+
+async function start() {
+	// other app startup stuff...
+	await mongoUtil.init();
+	// other app startup stuff...
+}
+start();
+  
+  
+automateGenerateAccessTokenTask.start();
 
 // request logging. dev: console | production: file
 app.use(morgan(logs));
