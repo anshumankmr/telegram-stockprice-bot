@@ -9,10 +9,12 @@ const { kiteLoginHelper } = require('./api/services/kite/kite-login');
 mongoUtil.connectToServer( async function( err, client ) {
 	if (err) console.log(err);
 	// start the rest of your app here
-	const kiteCredentials = await kiteLoginHelper();
-	const db = mongoUtil.getDb();
-	await db.collection('kite-token').deleteMany({});
-	console.log('Initialize the App',await db.collection('kite-token').insertOne(kiteCredentials));
+	if (env !== 'local'){
+		const kiteCredentials = await kiteLoginHelper();
+		const db = mongoUtil.getDb();
+		await db.collection('kite-token').deleteMany({});
+		console.log('Initialize the App',await db.collection('kite-token').insertOne(kiteCredentials));
+	}	
 	automateGenerateAccessTokenTask.start();
 	// listen to requests
 	app.listen(port, () => logger.info(`server started on port ${port} (${env})`));
