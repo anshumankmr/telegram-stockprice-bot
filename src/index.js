@@ -3,17 +3,15 @@ const logger = require('./config/logger');
 const app = require('./config/express');
 const mongoUtil = require('./config/databases/mongo');
 const { automateGenerateAccessTokenTask } = require('./api/services/kite/kite-request-token-cron');
-const { kiteLoginHelper } = require('./api/services/kite/kite-login');
+const { generateAndSaveAccessToken } = require('./api/services/kite/save-access-token');
 
 // eslint-disable-next-line no-unused-vars
 mongoUtil.connectToServer( async function( err, client ) {
 	if (err) console.log(err);
 	// start the rest of your app here
 	if (env !== 'local'){
-		const kiteCredentials = await kiteLoginHelper();
-		const db = mongoUtil.getDb();
-		await db.collection('kite-token').deleteMany({});
-		console.log('Initialize the App',await db.collection('kite-token').insertOne(kiteCredentials));
+		await generateAndSaveAccessToken();
+		console.log('Initialize the App');
 	}	
 	automateGenerateAccessTokenTask.start();
 	// listen to requests

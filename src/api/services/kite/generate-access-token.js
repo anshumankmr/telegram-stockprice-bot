@@ -1,8 +1,8 @@
 require('dotenv').config();
+const logger = require('../../../config/logger');
 const apiHelper  = require('../../utils/api-helper');
 const crypto = require('crypto');
 const qs = require('qs');
-const logger = require('../../../config/logger');
 
 async function generateAccessToken(data) {
 	try{
@@ -12,7 +12,7 @@ async function generateAccessToken(data) {
 			method: 'POST',
 			url: 'https://api.kite.trade/session/token',
 			headers: { 
-				'X-Kite-Version': '3', 
+				'X-Kite-Version': '3',
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			data : stringifiedData

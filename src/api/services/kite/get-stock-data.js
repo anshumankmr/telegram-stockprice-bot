@@ -22,7 +22,6 @@ async function getStockData(args){
 	ticker.on('disconnect', onDisconnect);
 	ticker.on('error', onError);
 	ticker.on('close', onClose);
-	ticker.on('order_update', onTrade);
 	function onTicks(ticks) {
 		console.log('Ticks', JSON.stringify(ticks[0]['last_price'], null , 2));
 		if (ticks[0]['last_price'] === args.price){
@@ -51,10 +50,6 @@ async function getStockData(args){
 	
 	function onClose(reason) {
 		console.log('Closed connection on close', reason);
-	}
-	
-	function onTrade(order) {
-		console.log('Order update', order);
 	}
 	
 }

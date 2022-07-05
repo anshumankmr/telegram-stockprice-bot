@@ -1,7 +1,26 @@
-const axios = require('axios');
 const logger = require('../../config/logger');
+const axios = require('axios');
+
+const retryWrapper = (axios, options) => {
+	const max_time = options.retry_time;
+	let counter = 0;
+	axios.interceptors.response.use(null,async (error) => {
+		const config = error.config;
+		const { generateAndSaveAccessToken } = require('../services/kite/save-access-token');
+		if (counter < max_time && error.response.status !== 200) {
+			counter++;
+			await generateAndSaveAccessToken();
+			return new Promise((resolve) => {
+				resolve(axios(config));
+			});
+		}
+		return Promise.reject(error);
+	});
+};
+
 module.exports.call = (requestOptions, requestHeaders = {}) => {
 	try{
+		retryWrapper(axios, {retry_time: 1});
 		const options = Object.assign({},requestOptions);
 		options.json = true;
 		options.headers = requestHeaders;
