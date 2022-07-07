@@ -9,8 +9,8 @@ const getPhoneNumber = async (agent) => {
 		globalParameters.numberOfTicks = 1;
 	}
 	if (globalParameters.numberOfTicks < freeTicks){
-		agent.add(responseMap.confirmNumber + globalParameters.parameters.phoneNumber);
-		getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber});
+		agent.add(responseMap.confirmNumber + globalParameters.parameters.phoneNumber + 'OK. Creating Ticker');
+		getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId});
 	} else {
 		agent.add('You have exhausted your free stock trackers');
 	}

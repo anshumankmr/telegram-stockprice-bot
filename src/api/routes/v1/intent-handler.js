@@ -5,7 +5,7 @@ const intentHandler = (req,res) =>
 {
 	try {
 		const agent = new WebhookClient({ request: req, response: res });
-		const intentMap = createIntentMap(agent);
+		const intentMap = createIntentMap();
 		agent.handleRequest(intentMap);
 		return agent;
 	}

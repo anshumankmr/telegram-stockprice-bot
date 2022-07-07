@@ -2,6 +2,8 @@
 var KiteTicker = require('kiteconnect').KiteTicker;
 const mongoUtil = require('../../../config/databases/mongo');
 const { sendWhatsAppTextMessage } = require('../notifications/whatsapp-msg-helper');
+const { sendTelegramTextMessage } = require('../notifications/telegram-msg-helper');
+
 const { whatsappNumber } = require('../../../config/vars');
 const logger = require('../../../config/logger');
 
@@ -25,14 +27,15 @@ async function getStockData(args){
 	ticker.on('error', onError);
 	ticker.on('close', onClose);
 	function onTicks(ticks) {
-		logger.info('Ticks', JSON.stringify(ticks[0]['last_price'], null , 2));
+		logger.info('Ticks ' + JSON.stringify(ticks[0]['last_price'], null , 2));
 		if (ticks[0]['last_price'] === args.price){
 			const body = { 
 				body: `Price has reached for ${ticks[0]['last_price']} for Stock with ID:${args.stockId}`, 
 				from: `whatsapp:${whatsappNumber}`,       
 				to: 'whatsapp:' + args.phoneNumber 
 			};
-			sendWhatsAppTextMessage(body);	
+			// sendWhatsAppTextMessage(body);
+			sendTelegramTextMessage(`Price has reached for ${ticks[0]['last_price']} for Stock with ID:${args.stockId}`, args.telegramChatId);
 		}
 	}
 	
