@@ -2,7 +2,7 @@ const { kiteLoginHelper } = require('./kite-login');
 const mongoUtil = require('../../../config/databases/mongo');
 const logger = require('../../../config/logger');
 
-async function generateAndSaveAccessToken(){
+async function saveAccessToken(){
 	try{
 		const kiteCredentials = await kiteLoginHelper();
 		const db = mongoUtil.getDb();
@@ -13,4 +13,4 @@ async function generateAndSaveAccessToken(){
 	}
 }
 
-module.exports = { generateAndSaveAccessToken };
+module.exports = { saveAccessToken };

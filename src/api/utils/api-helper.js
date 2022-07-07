@@ -6,10 +6,10 @@ const retryWrapper = (axios, options) => {
 	let counter = 0;
 	axios.interceptors.response.use(null,async (error) => {
 		const config = error.config;
-		const { generateAndSaveAccessToken } = require('../services/kite/save-access-token');
+		const { saveAccessToken } = require('../services/kite/save-access-token');
 		if (counter < max_time && error.response.status !== 200) {
 			counter++;
-			await generateAndSaveAccessToken();
+			await saveAccessToken();
 			return new Promise((resolve) => {
 				resolve(axios(config));
 			});

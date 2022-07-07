@@ -20,7 +20,6 @@ async function getLastQuotedPrice(args){
 		});
 		return response.data.data[args.instrument_token].last_price;
 	}catch(err){
-		console.log(err);
 		return -1;
 	}
 }

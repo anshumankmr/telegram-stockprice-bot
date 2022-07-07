@@ -3,6 +3,8 @@ var KiteTicker = require('kiteconnect').KiteTicker;
 const mongoUtil = require('../../../config/databases/mongo');
 const { sendWhatsAppTextMessage } = require('../notifications/whatsapp-msg-helper');
 const { whatsappNumber } = require('../../../config/vars');
+const logger = require('../../../config/logger');
+
 async function getStockData(args){
 	
 	const db = mongoUtil.getDb();
@@ -23,7 +25,7 @@ async function getStockData(args){
 	ticker.on('error', onError);
 	ticker.on('close', onClose);
 	function onTicks(ticks) {
-		console.log('Ticks', JSON.stringify(ticks[0]['last_price'], null , 2));
+		logger.info('Ticks', JSON.stringify(ticks[0]['last_price'], null , 2));
 		if (ticks[0]['last_price'] === args.price){
 			const body = { 
 				body: `Price has reached for ${ticks[0]['last_price']} for Stock with ID:${args.stockId}`, 
@@ -41,15 +43,15 @@ async function getStockData(args){
 	}
 	
 	function onDisconnect(error) {
-		console.log('Closed connection on disconnect', error);
+		logger.info('Closed connection on disconnect', error);
 	}
 	
 	function onError(error) {
-		console.log('Closed connection on error', error);
+		logger.info('Closed connection on error', error);
 	}
 	
 	function onClose(reason) {
-		console.log('Closed connection on close', reason);
+		logger.info('Closed connection on close', reason);
 	}
 	
 }
