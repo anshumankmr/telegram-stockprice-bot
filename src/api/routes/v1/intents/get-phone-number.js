@@ -2,6 +2,7 @@
 const responseMap = require('../../../utils/response-map');
 const { getStockData } = require('../../../services/kite/get-stock-data');
 const { freeTicks } = require('../../../..//config/vars');
+const { setTemplate } = require('../../../services/helpers');
 
 const getPhoneNumber = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');
@@ -9,7 +10,7 @@ const getPhoneNumber = async (agent) => {
 		globalParameters.numberOfTicks = 1;
 	}
 	if (globalParameters.numberOfTicks < freeTicks){
-		agent.add(responseMap.confirmNumber + globalParameters.parameters.phoneNumber + 'OK. Creating Ticker');
+		agent.add(setTemplate(responseMap.confirmNumber, {number: globalParameters.parameters.phoneNumber}));
 		getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId});
 	} else {
 		agent.add('You have exhausted your free stock trackers');
