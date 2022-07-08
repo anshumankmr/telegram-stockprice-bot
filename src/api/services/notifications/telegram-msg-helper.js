@@ -3,7 +3,7 @@ const { telegramBotToken } = require('../../../config/vars');
 
 const bot = new TelegramBot(telegramBotToken, { polling: false });
 
-const sendTelegramTextMessage = (message, chatId = '843439131') => {
+const sendTelegramTextMessage = (message, chatId) => {
 	try {
 		bot.sendMessage(chatId, message, {parse_mode: 'html'});
 	} catch (err) {
