@@ -1,0 +1,27 @@
+[
+  {
+    "value": "WHATSAPP",
+    "synonyms": [
+      "WHATSAPP",
+      "Whatsapp"
+    ]
+  },
+  {
+    "value": "TELEGRAM",
+    "synonyms": [
+      "Telegram",
+      "Tele gram"
+    ]
+  },
+  {
+    "value": "EMAIL",
+    "synonyms": [
+      "EMAIL",
+      "gmail",
+      "outlook",
+      "e mail",
+      "g mail",
+      "electronic mail"
+    ]
+  }
+]

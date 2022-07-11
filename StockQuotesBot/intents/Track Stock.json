@@ -1,0 +1,59 @@
+{
+  "id": "2d3701c1-e04a-4008-868c-34a3e1a7b032",
+  "name": "Track Stock",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "get-price",
+          "lifespan": 1
+        },
+        {
+          "name": "global-parameters",
+          "lifespan": 9999
+        }
+      ],
+      "parameters": [
+        {
+          "id": "c0c9ec72-b01e-4c99-9a54-f9b8d40ae231",
+          "name": "companyName",
+          "required": true,
+          "dataType": "@CompanyName",
+          "value": "$companyName",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "We are facing some technical issues"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

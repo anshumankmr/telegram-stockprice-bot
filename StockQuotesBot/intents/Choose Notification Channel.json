@@ -1,0 +1,57 @@
+{
+  "id": "a9423616-4ff3-4ea7-8d39-b52ba4a8749d",
+  "name": "Choose Notification Channel",
+  "auto": true,
+  "contexts": [
+    "get-notification-channel"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "fc7293ea-1caa-4407-8b93-2853e5bc92dc",
+          "name": "channel",
+          "required": true,
+          "dataType": "@NotificationChannel",
+          "value": "$channel",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please provide a notification channel"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "We are having some  technical issues."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

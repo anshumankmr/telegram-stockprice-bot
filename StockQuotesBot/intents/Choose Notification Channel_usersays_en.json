@@ -1,0 +1,55 @@
+[
+  {
+    "id": "6d3e700f-40cf-433a-9cb4-43c8f7b50032",
+    "data": [
+      {
+        "text": "telegram",
+        "meta": "@NotificationChannel",
+        "alias": "channel",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "821d1e0e-76bf-46bd-9b41-bd292d71dd71",
+    "data": [
+      {
+        "text": "Notify me through ",
+        "userDefined": false
+      },
+      {
+        "text": "whatsapp",
+        "meta": "@NotificationChannel",
+        "alias": "channel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "11ca7f4a-f857-40fe-888c-0b2b291264a3",
+    "data": [
+      {
+        "text": "I want to get notified through ",
+        "userDefined": false
+      },
+      {
+        "text": "whatsapp",
+        "meta": "@NotificationChannel",
+        "alias": "channel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -6,12 +6,13 @@ const { setTemplate } = require('../../../services/helpers');
 
 const getPhoneNumber = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');
+	const channel = globalParameters.parameters.channel;
 	if (globalParameters.numberOfTicks === undefined){
 		globalParameters.numberOfTicks = 1;
 	}
 	if (globalParameters.numberOfTicks < freeTicks){
 		agent.add(setTemplate(responseMap.confirmNumber, {number: globalParameters.parameters.phoneNumber}));
-		getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId});
+		getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId,channel:channel, company: globalParameters.parameters['companyName.original']});
 	} else {
 		agent.add('You have exhausted your free stock trackers');
 	}

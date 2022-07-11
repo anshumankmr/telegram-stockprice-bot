@@ -1,0 +1,52 @@
+{
+  "id": "4ddd4de9-2dcb-4aba-aa75-46e4e1d5dda4",
+  "name": "Get Phone Number",
+  "auto": true,
+  "contexts": [
+    "get-phone-number"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "86b5ab3a-ad88-438b-9e46-3de8b1a95dd1",
+          "name": "phoneNumber",
+          "required": false,
+          "dataType": "@sys.phone-number",
+          "value": "$phoneNumber",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "We are facing some technical issues."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,57 @@
+{
+  "id": "c9ce31dd-e5cc-4d34-a8db-e31b731005e4",
+  "name": "Get Price For Alert",
+  "auto": true,
+  "contexts": [
+    "get-price"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "get-notification-channel",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "9c140b2f-9bdd-4655-8aee-d5a50303ce62",
+          "name": "stockPrice",
+          "required": false,
+          "dataType": "@sys.number",
+          "value": "$stockPrice",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "We are facing some technical issues."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

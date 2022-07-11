@@ -1,0 +1,55 @@
+[
+  {
+    "id": "053eed54-3531-4724-8650-de78a1da8ea7",
+    "data": [
+      {
+        "text": "+918766360445",
+        "meta": "@sys.phone-number",
+        "alias": "phoneNumber",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3d9257bf-d3c5-4e3d-9644-59ba0c9f5e9d",
+    "data": [
+      {
+        "text": "my whatsapp number is ",
+        "userDefined": false
+      },
+      {
+        "text": "9958005579",
+        "meta": "@sys.phone-number",
+        "alias": "phoneNumber",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "1d68828d-404b-4381-b468-6d848db138f6",
+    "data": [
+      {
+        "text": "My number is ",
+        "userDefined": false
+      },
+      {
+        "text": "9958005579",
+        "meta": "@sys.phone-number",
+        "alias": "phoneNumber",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "id": "ae31a9a8-18fc-4b61-8b0d-76c98f669669",
+  "name": "NotificationChannel",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -1,0 +1,173 @@
+[
+  {
+    "id": "4b6a685c-6a0c-4246-98d3-93cebf9d212b",
+    "data": [
+      {
+        "text": "1000",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a8e84c1d-9b49-49d9-811f-da707ba0d01c",
+    "data": [
+      {
+        "text": "I want to know the price when it hits ",
+        "userDefined": false
+      },
+      {
+        "text": "200",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "421c7439-2051-4226-8502-2fe1cf589347",
+    "data": [
+      {
+        "text": "The alert should be sent at ",
+        "userDefined": false
+      },
+      {
+        "text": "202",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7d07d888-41c7-4f1e-b6ef-bf1fa895f705",
+    "data": [
+      {
+        "text": "At ",
+        "userDefined": false
+      },
+      {
+        "text": "12012",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ebd8d1ea-978f-4708-b58c-d277cf712236",
+    "data": [
+      {
+        "text": "Please send a notification when it hits ",
+        "userDefined": false
+      },
+      {
+        "text": "199",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "712cb75f-c23b-40c1-82b0-2c6e5043cb1e",
+    "data": [
+      {
+        "text": "When it hits ",
+        "userDefined": false
+      },
+      {
+        "text": "1992",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": true
+      },
+      {
+        "text": ", let me know",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0bb3e989-0cfa-4eb7-9149-ab9a50fe144d",
+    "data": [
+      {
+        "text": "Lmk when it hits ",
+        "userDefined": false
+      },
+      {
+        "text": "199",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3cd7f52e-276d-469a-99de-80fb4405b0ba",
+    "data": [
+      {
+        "text": "Let me know when it hits ",
+        "userDefined": false
+      },
+      {
+        "text": "192",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d18e5e2c-dc16-4c7b-b924-fbe791d88f55",
+    "data": [
+      {
+        "text": "I want to be notified when the stock  hits ",
+        "userDefined": false
+      },
+      {
+        "text": "900",
+        "meta": "@sys.number",
+        "alias": "stockPrice",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

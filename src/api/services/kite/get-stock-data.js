@@ -3,7 +3,8 @@ var KiteTicker = require('kiteconnect').KiteTicker;
 const mongoUtil = require('../../../config/databases/mongo');
 const { sendWhatsAppTextMessage } = require('../notifications/whatsapp-msg-helper');
 const { sendTelegramTextMessage } = require('../notifications/telegram-msg-helper');
-
+const  responseMap = require('../../utils/response-map');
+const { setTemplate } = require('../helpers');
 const { whatsappNumber } = require('../../../config/vars');
 const logger = require('../../../config/logger');
 
@@ -29,13 +30,17 @@ async function getStockData(args){
 	function onTicks(ticks) {
 		logger.info('Ticks ' + JSON.stringify(ticks[0]['last_price'], null , 2));
 		if (ticks[0]['last_price'] === args.price){
-			const body = { 
-				body: `Price has reached for ${ticks[0]['last_price']} for Stock with ID:${args.stockId}`, 
-				from: `whatsapp:${whatsappNumber}`,       
-				to: 'whatsapp:' + args.phoneNumber 
-			};
-			// sendWhatsAppTextMessage(body);
-			sendTelegramTextMessage(`Price has reached for ${ticks[0]['last_price']} for Stock with ID:${args.stockId}`, args.telegramChatId);
+			const response = setTemplate(responseMap.stockTickerMessage, {price: ticks[0]['last_price'], id: args.stockId , company: args.company.toUpperCase()});
+			if (args.channel === 'WHATSAPP'){
+				const body = { 
+					body: response, 
+					from: `whatsapp:${whatsappNumber}`,       
+					to: 'whatsapp:+91'+args.phoneNumber 
+				};
+				sendWhatsAppTextMessage(body);
+			} else if (args.channel === 'TELEGRAM'){
+				sendTelegramTextMessage(response, args.telegramChatId);
+			}
 		}
 	}
 	

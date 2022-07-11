@@ -1,0 +1,59 @@
+[
+  {
+    "id": "95c67d28-3980-49d3-b89a-7442eb9b5138",
+    "data": [
+      {
+        "text": "I want to track ",
+        "userDefined": false
+      },
+      {
+        "text": "NIPPON INDIA MUTUAL FUND",
+        "meta": "@CompanyName",
+        "alias": "companyName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e8961d47-ca91-4671-987d-75dfb8ce65a0",
+    "data": [
+      {
+        "text": "I want to track ",
+        "userDefined": false
+      },
+      {
+        "text": "ICICI Bank",
+        "meta": "@CompanyName",
+        "alias": "companyName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7652d2d9-53a8-406b-b56a-6a0f21c283c6",
+    "data": [
+      {
+        "text": "Can you tell me about ",
+        "userDefined": false
+      },
+      {
+        "text": "tata motors",
+        "meta": "@CompanyName",
+        "alias": "companyName",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

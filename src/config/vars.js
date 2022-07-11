@@ -22,5 +22,10 @@ module.exports = {
 		password: process.env.EMAIL_PASSWORD,
 	},
 	freeTicks: process.env.FREE_TICKS || 2,
-	telegramBotToken: process.env.TELEGRAM_BOT_TOKEN
+	telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+	context:{
+		'name': '',
+		'lifespan': 1, 
+		'parameters': {}
+	}
 };
