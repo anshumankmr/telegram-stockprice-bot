@@ -6,6 +6,7 @@ module.exports = {
 	confirmPrice: 'Okay. The price you have chosen is <%= price %>. Please let me know how  you want to be notified. Currently supported channels are Telegram and Whatsapp and we are working on supporting E-Mail next.',
 	getWhatsappNumber: 'Okay. You choose <%= channel %>. Please give me your Whatsapp Number. Please note that currently only Indian phone numbers are supported.',
 	confirmNumber: 'Okay. The number you have provided is <%= number %>. I am now going to create a ticker to provide you real time alerts.',
+	confirmTickerTelegram: 'Okay. The alerts will be sent via a push notification on this thread',
 	platformNotSupported: 'Currently, the platform <%= channel %> is not supported. Please try again.',
 	stockTickerMessage: 'Price has reached for <%= price %> for Stock for the Company <%= company %> with ID: <%= id %>.'
 };

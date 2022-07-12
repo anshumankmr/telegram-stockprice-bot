@@ -20,8 +20,8 @@ const getNotificationChannel = async (agent) => {
 			globalParameters.numberOfTicks = 1;
 		}
 		if (globalParameters.numberOfTicks < freeTicks){
-			agent.add(setTemplate(responseMap.confirmNumber, {number: globalParameters.parameters.phoneNumber}));
-			getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId, channel :  channel , company: globalParameters.parameters['companyName.original']});
+			agent.add(setTemplate(responseMap.confirmTickerTelegram, {}));
+			getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , telegramChatId : globalParameters.parameters.telegramChatId, channel :  channel , company: globalParameters.parameters['companyName.original']});
 		} else {
 			agent.add('You have exhausted your free stock trackers');
 		}
