@@ -1,9 +1,9 @@
 'use strict';
-const responseMap = require('../../../utils/response-map');
-const { setTemplate } = require('../../../services/helpers');
-const { context } = require('../../../../config/vars');
-const { getStockData } = require('../../../services/kite/get-stock-data');
-const { freeTicks } = require('../../../..//config/vars');
+const responseMap = require('../../utils/response-map');
+const { setTemplate } = require('../../services/helpers');
+const { context } = require('../../../config/vars');
+const { getStockData } = require('../../services/kite/get-stock-data');
+const { freeTicks } = require('../../../config/vars');
 
 const getNotificationChannel = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');

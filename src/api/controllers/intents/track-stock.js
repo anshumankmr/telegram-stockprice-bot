@@ -1,7 +1,7 @@
 'use strict';
-const responseMap = require('../../../utils/response-map');
-const { getLastQuotedPrice } = require('../../../services/kite/get-last-quoted-price');
-const { setTemplate } = require('../../../services/helpers');
+const responseMap = require('../../utils/response-map');
+const { getLastQuotedPrice } = require('../../services/kite/get-last-quoted-price');
+const { setTemplate } = require('../../services/helpers');
 
 const trackStock = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');

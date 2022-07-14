@@ -1,8 +1,8 @@
 'use strict';
-const responseMap = require('../../../utils/response-map');
-const { getStockData } = require('../../../services/kite/get-stock-data');
-const { freeTicks } = require('../../../..//config/vars');
-const { setTemplate } = require('../../../services/helpers');
+const responseMap = require('../../utils/response-map');
+const { getStockData } = require('../../services/kite/get-stock-data');
+const { freeTicks } = require('../../../config/vars');
+const { setTemplate } = require('../../services/helpers');
 
 const getPhoneNumber = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');

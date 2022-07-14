@@ -1,6 +1,6 @@
 'use strict';
-const responseMap = require('../../../utils/response-map');
-const { setTemplate } = require('../../../services/helpers');
+const responseMap = require('../../utils/response-map');
+const { setTemplate } = require('../../services/helpers');
 
 const getPriceForStock = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');

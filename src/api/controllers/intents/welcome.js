@@ -1,6 +1,6 @@
 'use strict';
-const responseMap = require('../../../utils/response-map');
-const { context } = require('../../../../config/vars');
+const responseMap = require('../../utils/response-map');
+const { context } = require('../../../config/vars');
 
 const welcome = async (agent) => {
 	const globalParameters = context;

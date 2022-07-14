@@ -45,7 +45,7 @@ const kiteLoginHelper = async () => {
 		return response;
 	}
 	catch(err){
-		logger.log('error','Error in Kite Login API ' + err.stack)
+		logger.log('error','Error in Kite Login API ' + err.stack);
 	}
 };
 
