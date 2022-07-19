@@ -8,7 +8,7 @@ const welcome = async (agent) => {
 	globalParameters.lifespan = 9999;
 	globalParameters.parameters.telegramChatId = agent.originalRequest?.payload?.data?.chat?.id || -1;
 	agent.add(responseMap.welcome);
-	agent.setContext(globalParameters); 
+	agent.setContext(globalParameters);
 };
 
 module.exports = welcome;

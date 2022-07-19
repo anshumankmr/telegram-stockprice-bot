@@ -27,5 +27,18 @@ module.exports = {
 		'name': '',
 		'lifespan': 1, 
 		'parameters': {}
+	},
+	sql:{
+		user:process.env.DB_USERNAME,
+		password:process.env.DB_PASSWORD,
+		host:process.env.DB_HOST,
+		port:process.env.DB_PORT,
+		database:process.env.DB_DATABASE,
+		models: [
+			{
+				name: 'Users',
+				path: require('../api/models/sql/Users')
+			}
+		]
 	}
 };
