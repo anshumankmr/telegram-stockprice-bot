@@ -10,7 +10,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix",
-    "test": "node src/api/services/sql/sql-helpers.js"
+    "test": "node src/api/services/sql/get-user-ticks-exhausted.js"
   },
   "author": "Anshuman Kumar",
   "license": "MIT",

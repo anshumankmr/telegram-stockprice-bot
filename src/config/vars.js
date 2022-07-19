@@ -39,6 +39,11 @@ module.exports = {
 				name: 'Users',
 				path: require('../api/models/sql/Users')
 			}
-		]
+		],
+		testMode: process.env.DB_TEST_MODE
+	},
+	ticks: {
+		PREMIUM: 1000,
+		NORMAL: 10
 	}
 };

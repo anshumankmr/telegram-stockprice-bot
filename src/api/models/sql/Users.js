@@ -12,10 +12,6 @@ module.exports = (db) => {
 			type: Sequelize.STRING,
 			allowNull: false
 		},
-		data: {
-			type: Sequelize.JSON,
-			allowNull: false
-		},
 		tier: {
 			type: Sequelize.STRING,
 			allowNull:false,
