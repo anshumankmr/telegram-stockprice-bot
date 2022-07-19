@@ -20,6 +20,11 @@ module.exports = (db) => {
 			type: Sequelize.STRING,
 			allowNull:false,
 			defaultValue: 'FREE'
+		},
+		ticks: {
+			type: Sequelize.INTEGER,
+			allowNull:false,
+			defaultValue:0
 		}
 	},
 	{
