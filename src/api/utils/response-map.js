@@ -8,5 +8,6 @@ module.exports = {
 	confirmNumber: 'Okay. The number you have provided is <%= number %>. I am now going to create a ticker to provide you real time alerts.',
 	confirmTickerTelegram: 'Okay. The alerts will be sent via a push notification on this thread',
 	platformNotSupported: 'Currently, the platform <%= channel %> is not supported. Please try again.',
-	stockTickerMessage: 'Price has reached for <%= price %> for Stock for the Company <%= company %> with ID: <%= id %>.'
+	stockTickerMessage: 'Price has reached for <%= price %> for Stock for the Company <%= company %> with ID: <%= id %>.',
+	invalidCompanyName:'I am sorry. I didn\'t get what company you were looking to know about. Can you try providing the company name once again.'
 };
