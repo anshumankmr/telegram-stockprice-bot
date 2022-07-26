@@ -11,6 +11,7 @@ const kiteLoginHelper = async () => {
 			args: ['--no-sandbox','--disable-setuid-sandbox']
 		});
 		const page = await browser.newPage();
+		await page.setDefaultNavigationTimeout(0);
 		await page.setViewport({ width: 1280, height: 800 });
 		await page.goto(`https://kite.trade/connect/login?api_key=${apikey}&v=3`,{waitUntil: 'load',timeout: 0});
 		const navigationPromise = page.waitForNavigation();

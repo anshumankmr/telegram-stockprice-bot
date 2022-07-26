@@ -7,6 +7,7 @@ const retryWrapper = (axios, options) => {
 	axios.interceptors.response.use(null,async (error) => {
 		const config = error.config;
 		const { saveAccessToken } = require('../services/kite/save-access-token');
+		logger.log('info','API Call Failed');
 		if (counter < max_time && error.response.status !== 200) {
 			counter++;
 			await saveAccessToken();
