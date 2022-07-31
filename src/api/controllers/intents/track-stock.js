@@ -4,12 +4,12 @@ const { getLastQuotedPrice } = require('../../services/kite/get-last-quoted-pric
 const { setTemplate } = require('../../services/helpers');
 
 const getCompanyName = async (agent) => {
-	const context = agent.getContext('global-parameters') || agent.getContext('get-price');
+	const context = agent.getContext('global-parameters') || agent.getContext('get-phone-number');
 	if (context.parameters['companyName.original'] === '') {
 		context.lifespan = 0;
 		agent.add(responseMap.invalidCompanyName);
 	} else {
-		if (context.name === 'get-price'){
+		if (context.name === 'get-phone-number'){
 			context.name = 'global-parameters';
 			context.lifespan = 9999;//rename this context to global-parameters to save the values	
 		}	

@@ -3,6 +3,9 @@ const { findOneRow, incrementColumnValue} = require('./sql-helpers');
 
 const getUserTicksExhausted = async (phoneNumber) =>  {
 	let row = await findOneRow('Users','phone_number',phoneNumber);
+	if (row === null){
+		return true;//assuming currently if user is not in DB, their ticks are expired
+	}
 	row = row.dataValues;
 	if (sql.testMode === 'true'){
 		return false;
@@ -10,10 +13,10 @@ const getUserTicksExhausted = async (phoneNumber) =>  {
 	let flag = false;
 	switch(row.tier){
 	case 'PREMIUM':
-		flag = row.ticks < ticks.PREMIUM;
+		flag = row.ticks >= ticks.PREMIUM;
 		break;
 	case 'NORMAL':
-		flag = row.ticks < ticks.NORMAL;
+		flag = row.ticks >= ticks.NORMAL;
 		break;
 	default:
 		flag = false;
