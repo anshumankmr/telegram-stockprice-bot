@@ -4,18 +4,20 @@ module.exports = (db) => {
 	const Users = db.define('Users', {
 		id: {
 			field: 'id',
-			type: Sequelize.INTEGER,
 			primaryKey: true,
-			autoIncrement: true
+			type: Sequelize.UUID,
+			defaultValue: Sequelize.UUIDV4,
 		},
 		phone_number: {
 			type: Sequelize.STRING,
-			allowNull: false
+			allowNull: false,
+			unique: true
 		},
 		tier: {
-			type: Sequelize.STRING,
+			type:   Sequelize.ENUM,
 			allowNull:false,
-			defaultValue: 'FREE'
+			defaultValue: 'FREE',
+			values: ['FREE','PREMIUM']
 		},
 		ticks: {
 			type: Sequelize.INTEGER,
