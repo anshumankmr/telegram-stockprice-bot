@@ -1,6 +1,7 @@
 
 const mongoUtil = require('../../../config/databases/mongo');
 const apiHelper  = require('../../utils/api-helper');
+const logger = require('../../../config/logger');
 
 async function getLastQuotedPrice(args){
 	try{
@@ -12,7 +13,7 @@ async function getLastQuotedPrice(args){
 		let data = documents[0];
 		let options = {
 			method: 'GET',
-			url: `https://api.kite.trade/quote?i=${args.instrument_token}`
+			url: `https://api.kite.trade/quote?i=${args.instrument_token}`// need to move this to constants.js
 		};
 		const response = await apiHelper.call(options,{
 			'X-Kite-Version': '3', 
@@ -20,6 +21,7 @@ async function getLastQuotedPrice(args){
 		});
 		return response.data.data[args.instrument_token].last_price;
 	}catch(err){
+		logger.log('error',err.code);
 		return -1;
 	}
 }

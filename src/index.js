@@ -9,7 +9,7 @@ const { saveAccessToken } = require('./api/services/kite/save-access-token');
 mongoUtil.connectToServer( async function( err, client ) {
 	if (err) logger.info('error',err);
 	// start the rest of your app here
-	if (env !== 'local'){
+	if (env === 'local'){
 		await saveAccessToken();
 		logger.info('Initialize the App');
 	}	
