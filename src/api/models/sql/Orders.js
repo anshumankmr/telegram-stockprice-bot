@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (db) => {
-	const Users = db.define('Users', {
+	const Users = db.define('Orders', {
 		id: {
 			field: 'id',
 			primaryKey: true,
@@ -10,20 +10,18 @@ module.exports = (db) => {
 		},
 		phone_number: {
 			type: Sequelize.STRING,
-			allowNull: false,
-			unique: true
+			allowNull: false
 		},
-		tier: {
+		data: {
+			type: Sequelize.JSON,
+			allowNull: false
+		},
+		status: {
 			type:   Sequelize.ENUM,
 			allowNull:false,
-			defaultValue: 'FREE',
-			values: ['FREE','PREMIUM']// can be saved in constants.js
+			defaultValue: 'PENDING',
+			values: ['PENDING','FULFILLED']// can be saved in constants.js
 		},
-		ticks: {
-			type: Sequelize.INTEGER,
-			allowNull:false,
-			defaultValue:0
-		}
 	},
 	{
 		timestamps: false

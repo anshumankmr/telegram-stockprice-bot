@@ -4,6 +4,8 @@ const { getStockData } = require('../../services/kite/get-stock-data');
 const { setTemplate } = require('../../services/helpers');
 const { getUserTicksExhausted } = require('../../services/sql/get-user-ticks-exhausted');
 const { context } = require('../../../config/vars');
+const { saveData } = require('../../services/sql/sql-helpers');
+const { v4: uuidv4 } = require('uuid');
 
 const getPhoneNumber = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');
@@ -15,7 +17,10 @@ const getPhoneNumber = async (agent) => {
 	} else {
 		if (userChoseWhatsapp){
 			agent.add(setTemplate(responseMap.confirmWhatsappNumber, {number: globalParameters.parameters.phoneNumber}));
-			getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId,channel:channel, company: globalParameters.parameters['companyName.original']});
+			const orderId = uuidv4();
+			const args = {stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , phoneNumber: globalParameters.parameters.phoneNumber , telegramChatId : globalParameters.parameters.telegramChatId,channel:channel, company: globalParameters.parameters['companyName.original'], id:orderId};
+			getStockData(args);
+			saveData('Orders',{phone_number:globalParameters.parameters.phoneNumber,data:args,status:'PENDING',id:orderId});
 			globalParameters.parameters.channel = '';
 			globalParameters.parameters['channel.original'] = '';
 		} else {

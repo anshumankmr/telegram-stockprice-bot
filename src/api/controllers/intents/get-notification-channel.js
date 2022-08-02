@@ -4,6 +4,8 @@ const { setTemplate } = require('../../services/helpers');
 const { context } = require('../../../config/vars');
 const { getStockData } = require('../../services/kite/get-stock-data');
 const { freeTicks } = require('../../../config/vars');
+const { saveData } = require('../../services/sql/sql-helpers');
+const { v4: uuidv4 } = require('uuid');
 
 const getNotificationChannel = async (agent) => {
 	const globalParameters = agent.getContext('global-parameters');
@@ -21,7 +23,11 @@ const getNotificationChannel = async (agent) => {
 		}
 		if (globalParameters.numberOfTicks < freeTicks){
 			agent.add(setTemplate(responseMap.confirmTickerTelegram, {}));
-			getStockData({stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , telegramChatId : globalParameters.parameters.telegramChatId, channel :  channel , company: globalParameters.parameters['companyName.original']});
+			const orderId = uuidv4();
+			const args = {stockId: globalParameters.parameters.companyName , price:globalParameters.parameters.stockPrice , telegramChatId : globalParameters.parameters.telegramChatId, channel :  channel , company: globalParameters.parameters['companyName.original'],id:orderId};
+			getStockData(args);
+			saveData('Orders',{phone_number:globalParameters.parameters.phoneNumber,data:args,status:'PENDING',id:orderId});
+
 		} else {
 			agent.add('You have exhausted your free stock trackers');
 		}

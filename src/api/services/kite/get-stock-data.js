@@ -7,6 +7,7 @@ const  responseMap = require('../../utils/response-map');
 const { setTemplate } = require('../helpers');
 const { whatsappNumber } = require('../../../config/vars');
 const logger = require('../../../config/logger');
+const { findOneRow,updateColumnValue } = require('../sql/sql-helpers');
 
 async function getStockData(args){
 	
@@ -27,9 +28,13 @@ async function getStockData(args){
 	ticker.on('disconnect', onDisconnect);
 	ticker.on('error', onError);
 	ticker.on('close', onClose);
-	function onTicks(ticks) {
+	async function onTicks(ticks) {
 		logger.info('Ticks ' + JSON.stringify(ticks[0]['last_price'], null , 2));
 		if (ticks[0]['last_price'] === args.price){
+			const rows =  await findOneRow('Orders','id',args.id);
+			if (rows === null || rows.dataValues.status !== 'PENDING'){
+				return;
+			}
 			const response = setTemplate(responseMap.stockTickerMessage, {price: ticks[0]['last_price'], id: args.stockId , company: args.company.toUpperCase()});
 			if (args.channel === 'WHATSAPP'){
 				const body = { 
@@ -41,6 +46,8 @@ async function getStockData(args){
 			} else if (args.channel === 'TELEGRAM'){
 				sendTelegramTextMessage(response, args.telegramChatId);
 			}
+			updateColumnValue('Orders','id',args.id,'status','FULFILLED');
+
 		}
 	}
 	

@@ -27,7 +27,28 @@ const incrementColumnValue = async (modelName,columnName,keyValue,incrementColum
 		return null;
 	} 
 	return rows;
-
 };
 
-module.exports = {findAllRows,findOneRow,incrementColumnValue};
+const saveData = async (modelName,data) => {
+	await sqlModels;
+	await sqlModels[modelName].create(data);
+};
+
+const updateColumnValue = async (modelName,columnName,keyValue,updateColumnName, value) => {
+	await sqlModels;
+	const rows = sqlModels[modelName].update(
+		{
+			[updateColumnName]:value
+		}
+		, 
+		{
+			where: { [columnName]: keyValue }
+		}
+	);
+	if (rows === null){
+		return null;
+	} 
+	return rows;
+};
+
+module.exports = {findAllRows,findOneRow,incrementColumnValue,saveData,updateColumnValue};

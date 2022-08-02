@@ -38,6 +38,10 @@ module.exports = {
 			{
 				name: 'Users',
 				path: require('../api/models/sql/Users')
+			},
+			{
+				name: 'Orders',
+				path: require('../api/models/sql/Orders')
 			}
 		],
 		testMode: process.env.DB_TEST_MODE
