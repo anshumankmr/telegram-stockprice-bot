@@ -1,6 +1,6 @@
 const cron = require('node-cron');
 const logger = require('../../../config/logger');
-const {saveAccessToken} = require('./generate-access-token');
+const {saveAccessToken} = require('./save-access-token');
 
 const automateGenerateAccessTokenTask = cron.schedule('45 8 * * *', async () => {
 	try {
