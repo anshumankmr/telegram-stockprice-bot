@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "lint": "eslint --ext .js --ignore-path .gitignore . --fix",
-    "test": "node src/api/services/sql/get-user-ticks-exhausted.js"
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix"
   },
   "author": "Anshuman Kumar",
   "license": "MIT",

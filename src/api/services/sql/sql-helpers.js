@@ -5,9 +5,13 @@ let sqlModels = (async function ()  {
 	return sqlModels;
 })();
 
-const findAllRows = async (modelName) =>  {
+const findAllRows = async (modelName, columnName, value) =>  {
 	await sqlModels;
-	const rows = await sqlModels[modelName].findAll();
+	const rows = await sqlModels[modelName].findAll(
+		{
+			where: {[columnName]:value}
+		} 
+	);
 	return rows;
 };
 
