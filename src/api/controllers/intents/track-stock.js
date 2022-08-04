@@ -15,6 +15,7 @@ const getCompanyName = async (agent) => {
 		}	
 		const lastPrice = await getLastQuotedPrice({instrument_token : context.parameters.companyName});
 		context.parameters.telegramChatId = agent.originalRequest?.payload?.data?.chat?.id || -1;
+		agent.add(responseMap.signUpMessage);
 		agent.add(setTemplate(responseMap.confirmResponse, {companyName :context.parameters['companyName.original'] , companyId: context.parameters.companyName, lastPrice: lastPrice })
 		);
 	}

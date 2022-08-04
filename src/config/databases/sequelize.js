@@ -7,6 +7,10 @@ const db = new Sequelize(database, user, password, {
 	host,
 	port,
 	dialect: 'postgres',
-	logging: false
+	logging: false,
+	sslmode:'require',
+	dialectOptions:{
+		ssl: true
+	}
 });
 module.exports = { db };
